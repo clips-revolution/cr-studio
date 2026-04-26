@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { Download, ImageIcon, Play, Video, X } from 'lucide-react'
+import { Download, ImageIcon, Play, Trash2, X } from 'lucide-react'
 import { downloadFile } from '@/lib/download'
 import type { Asset } from '@/types'
 
@@ -44,11 +44,28 @@ function VideoLightbox({ asset, onClose }: { asset: Asset; onClose: () => void }
   )
 }
 
-export default function GalleryGrid({ assets }: { assets: Asset[] }) {
+export default function GalleryGrid({ assets: initialAssets }: { assets: Asset[] }) {
   const [filter, setFilter] = useState<'all' | 'image' | 'video'>('all')
   const [preview, setPreview] = useState<Asset | null>(null)
+  const [assets, setAssets] = useState<Asset[]>(initialAssets)
+  const [deletingId, setDeletingId] = useState<string | null>(null)
 
   const filtered = assets.filter(a => filter === 'all' || a.type === filter)
+
+  async function handleDelete(asset: Asset) {
+    if (!confirm('למחוק את הפריט הזה לצמיתות?')) return
+    setDeletingId(asset.id)
+    try {
+      const res = await fetch('/api/assets/delete', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: asset.id, url: asset.url }),
+      })
+      if (res.ok) setAssets(prev => prev.filter(a => a.id !== asset.id))
+    } finally {
+      setDeletingId(null)
+    }
+  }
 
   if (assets.length === 0) {
     return (
@@ -113,12 +130,21 @@ export default function GalleryGrid({ assets }: { assets: Asset[] }) {
                 <p className="text-white text-xs line-clamp-3">{asset.prompt}</p>
                 <div className="flex items-center justify-between pointer-events-auto">
                   <span className="text-white/60 text-xs">{asset.model.split('/').pop()}</span>
-                  <button
-                    onClick={e => { e.stopPropagation(); downloadFile(asset.url, `cr-studio-${asset.type}.${asset.type === 'video' ? 'mp4' : 'png'}`) }}
-                    className="p-1.5 bg-white/20 rounded-lg hover:bg-white/30 transition-colors"
-                  >
-                    <Download className="w-4 h-4 text-white" />
-                  </button>
+                  <div className="flex gap-1.5">
+                    <button
+                      onClick={e => { e.stopPropagation(); downloadFile(asset.url, `cr-studio-${asset.type}.${asset.type === 'video' ? 'mp4' : 'png'}`) }}
+                      className="p-1.5 bg-white/20 rounded-lg hover:bg-white/30 transition-colors"
+                    >
+                      <Download className="w-4 h-4 text-white" />
+                    </button>
+                    <button
+                      onClick={e => { e.stopPropagation(); handleDelete(asset) }}
+                      disabled={deletingId === asset.id}
+                      className="p-1.5 bg-red-500/30 rounded-lg hover:bg-red-500/60 transition-colors disabled:opacity-40"
+                    >
+                      <Trash2 className="w-4 h-4 text-white" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
