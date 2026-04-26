@@ -51,7 +51,7 @@ export default async function HomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-3xl fade-up-delay">
           <Link href="/images">
-            <div className="group bg-white/[0.03] hover:bg-white/[0.08] backdrop-blur-md border border-white/10 hover:border-white/25 rounded-2xl p-6 transition-all duration-300 cursor-pointer text-center">
+            <div className="group bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-white/25 rounded-2xl p-6 transition-all duration-300 cursor-pointer text-center">
               <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-500/25 transition-colors duration-300">
                 <svg className="w-5 h-5 text-white/50 group-hover:text-purple-200 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <rect x="3" y="3" width="18" height="18" rx="2" strokeWidth="1.5"/>
@@ -64,7 +64,7 @@ export default async function HomePage() {
           </Link>
 
           <Link href="/videos">
-            <div className="group bg-white/[0.03] hover:bg-white/[0.08] backdrop-blur-md border border-white/10 hover:border-white/25 rounded-2xl p-6 transition-all duration-300 cursor-pointer text-center">
+            <div className="group bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-white/25 rounded-2xl p-6 transition-all duration-300 cursor-pointer text-center">
               <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500/25 transition-colors duration-300">
                 <svg className="w-5 h-5 text-white/50 group-hover:text-blue-200 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/>
@@ -75,7 +75,7 @@ export default async function HomePage() {
           </Link>
 
           <Link href="/gallery">
-            <div className="group bg-white/[0.03] hover:bg-white/[0.08] backdrop-blur-md border border-white/10 hover:border-white/25 rounded-2xl p-6 transition-all duration-300 cursor-pointer text-center">
+            <div className="group bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-white/25 rounded-2xl p-6 transition-all duration-300 cursor-pointer text-center">
               <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center mx-auto mb-4 group-hover:bg-emerald-500/25 transition-colors duration-300">
                 <svg className="w-5 h-5 text-white/50 group-hover:text-emerald-200 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z"/>
