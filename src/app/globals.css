@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+    --primary: 270 60% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 50%;
+    --accent: 270 60% 65%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 0 0% 13%;
+    --input: 0 0% 13%;
+    --ring: 270 60% 65%;
+    --radius: 1rem;
+    --font-sans: 'Rubik', 'Segoe UI', system-ui, sans-serif;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground;
+    direction: rtl;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer utilities {
+  .ltr { direction: ltr; }
+  .rtl { direction: rtl; }
+}
+
+/* Ensure white/opacity utilities work */
+.border-white\/5 { border-color: rgba(255,255,255,0.05); }
+.border-white\/8 { border-color: rgba(255,255,255,0.08); }
+.border-white\/10 { border-color: rgba(255,255,255,0.10); }
+.border-white\/15 { border-color: rgba(255,255,255,0.15); }
+.border-white\/20 { border-color: rgba(255,255,255,0.20); }
+
+/* Grid drift — רשת נעה לאט למעלה */
+@keyframes drift {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-4%); }
+}
+.grid-drift {
+  animation: drift 18s ease-in-out infinite alternate;
+}
+
+/* Gradient animation cells — מדמים סרטוני preview */
+@keyframes gradShift1 {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes gradShift2 {
+  0%   { background-position: 100% 0%; }
+  50%  { background-position: 0% 100%; }
+  100% { background-position: 100% 0%; }
+}
+@keyframes gradShift3 {
+  0%   { background-position: 50% 0%; }
+  50%  { background-position: 50% 100%; }
+  100% { background-position: 50% 0%; }
+}
+.anim-grad-1 {
+  background-size: 300% 300%;
+  animation: gradShift1 8s ease infinite;
+}
+.anim-grad-2 {
+  background-size: 300% 300%;
+  animation: gradShift2 10s ease infinite;
+}
+.anim-grad-3 {
+  background-size: 300% 300%;
+  animation: gradShift3 12s ease infinite;
+}
+
+/* Magic shimmer on generate buttons */
+@keyframes magic-shimmer {
+  0%   { transform: translateX(-150%) skewX(-20deg); }
+  100% { transform: translateX(350%)  skewX(-20deg); }
+}
+.magic-shimmer {
+  animation: magic-shimmer 1.6s ease-in-out infinite;
+}
+
+/* Nano Banana 2 ticker */
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-track {
+  display: inline-flex;
+  animation: ticker 22s linear infinite;
+  will-change: transform;
+}
+.ticker-pause:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+/* Fade up — כניסת תוכן */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fadeUp 0.8s ease forwards;
+}
+.fade-up-delay {
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.3s forwards;
+}
