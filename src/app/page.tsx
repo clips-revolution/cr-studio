@@ -12,7 +12,7 @@ export default async function HomePage() {
   if (!session) redirect('/auth/login')
 
   return (
-    <div className="relative min-h-screen bg-black overflow-hidden">
+    <div className="relative min-h-screen bg-black flex flex-col overflow-x-hidden">
 
       <BackgroundGrid animate={true} />
 
@@ -30,10 +30,9 @@ export default async function HomePage() {
       </div>
 
       {/* Main content */}
-      <main className="relative z-20 flex flex-col items-center justify-center min-h-screen px-6">
+      <main className="relative z-20 flex-1 flex flex-col items-center justify-center px-6 pt-20 pb-8">
 
-        <div className="text-center mb-14 max-w-2xl fade-up">
-          {/* לוגו במרכז */}
+        <div className="text-center mb-8 md:mb-14 max-w-2xl fade-up">
           <div className="mb-5">
             <h2 className="text-white text-4xl mb-4 tracking-widest text-center" style={{ fontFamily: 'var(--font-display)' }}>
               c<span className="text-purple-400">R</span> Studio
@@ -44,7 +43,7 @@ export default async function HomePage() {
           <p className="text-white/40 text-xs tracking-widest uppercase mb-6 font-medium">
             הפכו רעיונות למציאות
           </p>
-          <h1 className="text-6xl md:text-7xl font-bold leading-tight text-white">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-white">
             צרו. דמיינו. תחלמו.
           </h1>
         </div>
@@ -87,7 +86,7 @@ export default async function HomePage() {
         </div>
       </main>
 
-      <div className="absolute bottom-0 left-0 right-0 z-20">
+      <div className="relative z-20">
         <AppFooter />
       </div>
     </div>
