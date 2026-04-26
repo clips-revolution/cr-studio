@@ -12,7 +12,7 @@ export default async function HomePage() {
   if (!session) redirect('/auth/login')
 
   return (
-    <div className="relative min-h-screen bg-black flex flex-col overflow-x-hidden">
+    <div className="relative min-h-screen bg-black flex flex-col">
 
       <BackgroundGrid animate={true} />
 
