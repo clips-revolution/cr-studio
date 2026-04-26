@@ -14,11 +14,12 @@ export default async function HomePage() {
   return (
     <div className="relative min-h-screen bg-black flex flex-col">
 
-      <BackgroundGrid animate={true} />
-
-      {/* Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/45 to-black/85 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-transparent to-black/55 pointer-events-none" />
+      {/* Background — fixed כדי שיכסה תמיד את כל ה-viewport גם בגלילה */}
+      <div className="fixed inset-0 z-0 overflow-hidden">
+        <BackgroundGrid animate={true} />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/45 to-black/85 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-transparent to-black/55 pointer-events-none" />
+      </div>
 
       {/* Profile — קבוע שמאל למעלה */}
       <div className="fixed top-4 left-5 z-50">
