@@ -25,8 +25,9 @@ export const metadata: Metadata = {
   title: 'cR Studio — ייצור תמונות וסרטונים עם AI',
   description: 'פלטפורמת AI ראשונה בעברית לייצור תמונות וסרטונים',
   icons: {
-    icon: '/logo.png',
-    apple: '/logo.png',
+    icon: '/apple-touch-icon.png',
+    apple: '/apple-touch-icon.png',
+    shortcut: '/apple-touch-icon.png',
   },
 }
 
