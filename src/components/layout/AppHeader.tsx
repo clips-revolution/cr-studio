@@ -13,26 +13,22 @@ export default async function AppHeader({ active }: Props) {
 
   return (
     <header className="fixed top-0 inset-x-0 z-50">
-      {/* פרופיל — קבוע בצד שמאל */}
-      <div className="absolute top-6 left-5 z-50">
+      {/* שורה 1: אווטאר שמאל + כפתור בית ימין */}
+      <div className="flex items-center justify-between px-5 pt-6">
         <UserMenu
           name={session?.user?.name}
           email={session?.user?.email}
           image={session?.user?.image}
         />
-      </div>
-
-      {/* כפתור בית — צד ימין */}
-      <div className="absolute top-6 right-5 z-50">
         <Link href="/">
-          <div className="w-8 h-8 flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/8 hover:bg-white/12 hover:border-white/15 transition-all">
-            <Home className="w-3.5 h-3.5 text-white/50 hover:text-white transition-colors" />
+          <div className="w-[42px] h-[42px] flex items-center justify-center rounded-full bg-white/[0.06] border border-white/8 hover:bg-white/12 hover:border-white/15 transition-all">
+            <Home className="w-4 h-4 text-white/50 hover:text-white transition-colors" />
           </div>
         </Link>
       </div>
 
-      {/* ניווט — מרכז */}
-      <div className="flex justify-center pt-6">
+      {/* שורה 2: ניווט */}
+      <div className="flex justify-center pt-2">
         <nav className="flex items-center gap-1 bg-white/[0.06] backdrop-blur-md border border-white/8 rounded-2xl px-1.5 py-1.5">
           <Link href="/images">
             <div className={`px-4 py-1.5 rounded-xl text-sm font-medium transition-all duration-200 ${
