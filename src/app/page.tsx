@@ -21,8 +21,9 @@ export default async function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 pointer-events-none" />
       </div>
 
-      {/* Profile — קבוע שמאל למעלה */}
-      <div className="fixed top-4 left-5 z-50">
+      {/* Profile — שורה עליונה, גולל עם הדף */}
+      <div className="relative z-20 flex justify-between items-center px-5 pt-6">
+        <div />
         <UserMenu
           name={session.user?.name}
           email={session.user?.email}
@@ -31,7 +32,7 @@ export default async function HomePage() {
       </div>
 
       {/* Main content */}
-      <main className="relative z-20 flex-1 flex flex-col items-center justify-center px-6 pt-20 pb-8">
+      <main className="relative z-20 flex-1 flex flex-col items-center justify-center px-6 pt-6 pb-8">
 
         <div className="text-center mb-8 md:mb-14 max-w-2xl fade-up">
           <div className="mb-5">
