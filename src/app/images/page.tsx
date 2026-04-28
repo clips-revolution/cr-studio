@@ -7,7 +7,7 @@ export default function ImagesPage() {
     <div className="min-h-screen bg-background flex flex-col">
       <AppHeader active="images" />
 
-      <main className="flex-1 max-w-5xl mx-auto w-full px-6 pt-28 pb-4">
+      <main className="flex-1 max-w-5xl mx-auto w-full px-6 pt-36 pb-4">
         <div className="mb-6">
           <h1 className="text-2xl font-bold mb-1">יצירת תמונות</h1>
           <p className="text-white/40 text-sm">הפוך טקסט לתמונה, או עבד תמונה קיימת</p>

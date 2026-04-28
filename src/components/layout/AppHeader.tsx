@@ -13,18 +13,18 @@ export default async function AppHeader({ active }: Props) {
 
   return (
     <header className="fixed top-0 inset-x-0 z-50">
-      {/* שורה 1: אווטאר שמאל + כפתור בית ימין */}
+      {/* שורה 1: כפתור בית ימין + אווטאר שמאל (RTL — ראשון = ימין) */}
       <div className="flex items-center justify-between px-5 pt-6">
-        <UserMenu
-          name={session?.user?.name}
-          email={session?.user?.email}
-          image={session?.user?.image}
-        />
         <Link href="/">
           <div className="w-[42px] h-[42px] flex items-center justify-center rounded-full bg-white/[0.06] border border-white/8 hover:bg-white/12 hover:border-white/15 transition-all">
             <Home className="w-4 h-4 text-white/50 hover:text-white transition-colors" />
           </div>
         </Link>
+        <UserMenu
+          name={session?.user?.name}
+          email={session?.user?.email}
+          image={session?.user?.image}
+        />
       </div>
 
       {/* שורה 2: ניווט */}
