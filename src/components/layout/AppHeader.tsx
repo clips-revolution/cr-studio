@@ -12,7 +12,7 @@ export default async function AppHeader({ active }: Props) {
   const session = await getServerSession(authOptions)
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50">
+    <header className="w-full">
       {/* שורה 1: כפתור בית ימין + אווטאר שמאל (RTL — ראשון = ימין) */}
       <div className="flex items-center justify-between px-5 pt-6">
         <Link href="/">

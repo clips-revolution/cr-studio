@@ -27,7 +27,7 @@ export default async function GalleryPage() {
     <div className="min-h-screen bg-background flex flex-col">
       <AppHeader active="gallery" />
 
-      <main className="flex-1 max-w-7xl mx-auto w-full px-6 pt-36 pb-4">
+      <main className="flex-1 max-w-7xl mx-auto w-full px-6 pt-6 pb-4">
         <div className="mb-8">
           <h1 className="text-2xl font-bold mb-1">הגלריה שלי</h1>
           <p className="text-white/40 text-sm">{assets?.length ?? 0} יצירות</p>
