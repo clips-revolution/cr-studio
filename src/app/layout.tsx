@@ -3,6 +3,7 @@ import { Oswald, Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
 import { Toaster } from 'sonner'
 import Providers from '@/components/layout/Providers'
+import HamburgerMenu from '@/components/layout/HamburgerMenu'
 
 const oswald = Oswald({
   subsets: ['latin'],
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="he" dir="rtl" className={`${oswald.variable} ${cormorant.variable}`}>
       <body>
         <Providers>
+          <HamburgerMenu />
           {children}
           <Toaster position="top-center" richColors />
         </Providers>
