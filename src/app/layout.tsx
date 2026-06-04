@@ -9,6 +9,7 @@ const abraham = localFont({
   src: './fonts/Abraham-Regular.ttf',
   variable: '--font-sans',
   display: 'swap',
+  weight: '100 900',
 })
 
 const oswald = Oswald({
