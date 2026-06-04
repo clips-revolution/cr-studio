@@ -1,12 +1,14 @@
 import type { Metadata } from 'next'
-import { Rubik, Oswald, Cormorant_Garamond } from 'next/font/google'
+import localFont from 'next/font/local'
+import { Oswald, Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
 import { Toaster } from 'sonner'
 import Providers from '@/components/layout/Providers'
 
-const rubik = Rubik({
-  subsets: ['hebrew', 'latin'],
+const abraham = localFont({
+  src: './fonts/Abraham-Regular.ttf',
   variable: '--font-sans',
+  display: 'swap',
 })
 
 const oswald = Oswald({
@@ -33,7 +35,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="he" dir="rtl" className={`${rubik.variable} ${oswald.variable} ${cormorant.variable}`}>
+    <html lang="he" dir="rtl" className={`${abraham.variable} ${oswald.variable} ${cormorant.variable}`}>
       <body>
         <Providers>
           {children}
