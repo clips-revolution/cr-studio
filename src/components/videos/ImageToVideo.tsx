@@ -134,7 +134,7 @@ export default function ImageToVideo() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-2">מודל AI</label>
+            <label className="block text-sm font-medium mb-2">מודל Ai</label>
             <ModelSelector
               models={SUPPORTED_MODELS}
               selected={selectedModel}

@@ -146,7 +146,7 @@ export default function SeedanceStudio() {
           </div>
           <div className="flex items-center gap-2">
             <div className="px-2.5 py-1 rounded-full bg-teal-500/15 border border-teal-500/25 text-xs text-teal-300 font-semibold ltr">1080p</div>
-            <div className="px-2.5 py-1 rounded-full bg-teal-500/15 border border-teal-500/25 text-xs text-teal-300 font-medium">AI Video</div>
+            <div className="px-2.5 py-1 rounded-full bg-teal-500/15 border border-teal-500/25 text-xs text-teal-300 font-medium">Ai Video</div>
           </div>
         </div>
       </div>
