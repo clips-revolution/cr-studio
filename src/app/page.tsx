@@ -24,7 +24,7 @@ export default async function HomePage() {
       </div>
 
       {/* Profile — שורה עליונה, גולל עם הדף */}
-      <div className="relative z-20 flex justify-between items-center px-5 pt-6">
+      <div className="relative z-30 flex justify-between items-center px-5 pt-6">
         <div />
         <UserMenu
           name={session.user?.name}
