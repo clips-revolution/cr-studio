@@ -65,8 +65,15 @@ export default function HamburgerMenu() {
         {/* Links */}
         <a
           href="https://clipsrevolution.com"
-          className="text-[1.05rem] font-semibold text-white/65 py-[0.9rem] border-b border-white/5 hover:text-white transition-colors"
+          className="flex items-center gap-[0.65rem] text-[1.05rem] font-semibold text-white/65 py-[0.9rem] border-b border-white/5 hover:text-white transition-colors"
         >
+          <span className="w-7 h-7 rounded-[7px] flex items-center justify-center flex-shrink-0"
+            style={{ background: 'linear-gradient(135deg,#7c3aed 0%,#a855f7 100%)', boxShadow: '0 2px 10px rgba(168,85,247,0.4)' }}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="20" height="20" aria-hidden="true">
+              <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+              <path d="M9 21V12h6v9"/>
+            </svg>
+          </span>
           חזור לדף הבית
         </a>
       </div>
