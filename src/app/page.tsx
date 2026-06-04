@@ -7,6 +7,7 @@ import BackgroundGrid from '@/components/layout/BackgroundGrid'
 import UserMenu from '@/components/layout/UserMenu'
 import AppFooter from '@/components/layout/AppFooter'
 import ApiKeyGuard from '@/components/setup/ApiKeyGuard'
+import HamburgerMenu from '@/components/layout/HamburgerMenu'
 
 export default async function HomePage() {
   const session = await getServerSession(authOptions)
@@ -23,9 +24,9 @@ export default async function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 pointer-events-none" />
       </div>
 
-      {/* Profile — שורה עליונה, גולל עם הדף */}
+      {/* Header — גולל עם הדף */}
       <div className="relative z-30 flex justify-between items-center px-5 pt-6">
-        <div />
+        <HamburgerMenu />
         <UserMenu
           name={session.user?.name}
           email={session.user?.email}

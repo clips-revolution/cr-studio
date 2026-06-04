@@ -24,7 +24,7 @@ export default function HamburgerMenu() {
         onClick={() => setOpen(true)}
         aria-label="פתח תפריט"
         aria-expanded={open}
-        className="fixed top-[1.1rem] right-5 z-[100] flex flex-col gap-[5px] cursor-pointer p-[6px] bg-white/5 border border-white/[0.08] rounded-[10px] hover:bg-white/10 transition-colors"
+        className="flex flex-col gap-[5px] cursor-pointer p-[6px] bg-white/5 border border-white/[0.08] rounded-[10px] hover:bg-white/10 transition-colors"
       >
         <span className="block w-[22px] h-[2px] bg-white rounded-sm" />
         <span className="block w-[22px] h-[2px] bg-white rounded-sm" />

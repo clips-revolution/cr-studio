@@ -4,7 +4,7 @@ import { Oswald, Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
 import { Toaster } from 'sonner'
 import Providers from '@/components/layout/Providers'
-import HamburgerMenu from '@/components/layout/HamburgerMenu'
+
 
 const abraham = localFont({
   src: './fonts/Abraham-Regular.ttf',
@@ -40,7 +40,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="he" dir="rtl" className={`${abraham.variable} ${oswald.variable} ${cormorant.variable}`}>
       <body className={abraham.className}>
         <Providers>
-          <HamburgerMenu />
           {children}
           <Toaster position="top-center" richColors />
         </Providers>

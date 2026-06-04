@@ -51,7 +51,7 @@ export default function ApiKeySetup({ onSaved }: Props) {
             placeholder="r8_xxxxxxxxxxxxxxxxxxxx"
             dir="ltr"
             autoComplete="new-password"
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/20 text-sm focus:outline-none focus:border-purple-500/50 transition-colors pr-12"
+            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/20 text-[16px] md:text-sm focus:outline-none focus:border-purple-500/50 transition-colors pr-12"
             onKeyDown={e => e.key === 'Enter' && handleSubmit()}
           />
           <button
