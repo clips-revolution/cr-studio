@@ -4,7 +4,11 @@ import { useState } from 'react'
 import { Key, ExternalLink, Eye, EyeOff } from 'lucide-react'
 import { useApiKey } from '@/hooks/useApiKey'
 
-export default function ApiKeySetup() {
+interface Props {
+  onSaved?: (key: string) => void
+}
+
+export default function ApiKeySetup({ onSaved }: Props) {
   const { setApiKey } = useApiKey()
   const [input, setInput] = useState('')
   const [showKey, setShowKey] = useState(false)
@@ -17,6 +21,7 @@ export default function ApiKeySetup() {
       return
     }
     setApiKey(trimmed)
+    onSaved?.(trimmed)
   }
 
   return (
