@@ -29,10 +29,12 @@
 
 @layer base {
   * { @apply border-border; }
+  html { overflow-x: hidden; }
   body {
     @apply bg-background text-foreground;
     direction: rtl;
     font-family: var(--font-sans);
+    overflow-x: hidden;
   }
 }
 
