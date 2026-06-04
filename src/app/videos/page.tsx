@@ -1,9 +1,11 @@
 import SeedanceStudio from '@/components/videos/TextToVideo'
 import AppHeader from '@/components/layout/AppHeader'
 import AppFooter from '@/components/layout/AppFooter'
+import ApiKeyGuard from '@/components/setup/ApiKeyGuard'
 
 export default function VideosPage() {
   return (
+    <ApiKeyGuard>
     <div className="min-h-screen bg-background flex flex-col">
       <AppHeader active="videos" />
 
@@ -18,5 +20,6 @@ export default function VideosPage() {
 
       <AppFooter />
     </div>
+    </ApiKeyGuard>
   )
 }

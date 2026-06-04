@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { Download, ImageIcon, Play, Trash2, X } from 'lucide-react'
 import { downloadFile } from '@/lib/download'
+import { useGallery } from '@/hooks/useGallery'
 import type { Asset } from '@/types'
 
 function VideoLightbox({ asset, onClose }: { asset: Asset; onClose: () => void }) {
@@ -44,10 +45,10 @@ function VideoLightbox({ asset, onClose }: { asset: Asset; onClose: () => void }
   )
 }
 
-export default function GalleryGrid({ assets: initialAssets }: { assets: Asset[] }) {
+export default function GalleryGrid() {
+  const { assets, deleteAsset } = useGallery()
   const [filter, setFilter] = useState<'all' | 'image' | 'video'>('all')
   const [preview, setPreview] = useState<Asset | null>(null)
-  const [assets, setAssets] = useState<Asset[]>(initialAssets)
   const [deletingId, setDeletingId] = useState<string | null>(null)
 
   const filtered = assets.filter(a => filter === 'all' || a.type === filter)
@@ -55,16 +56,8 @@ export default function GalleryGrid({ assets: initialAssets }: { assets: Asset[]
   async function handleDelete(asset: Asset) {
     if (!confirm('למחוק את הפריט הזה לצמיתות?')) return
     setDeletingId(asset.id)
-    try {
-      const res = await fetch('/api/assets/delete', {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: asset.id, url: asset.url }),
-      })
-      if (res.ok) setAssets(prev => prev.filter(a => a.id !== asset.id))
-    } finally {
-      setDeletingId(null)
-    }
+    await deleteAsset(asset.id)
+    setDeletingId(null)
   }
 
   if (assets.length === 0) {

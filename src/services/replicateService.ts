@@ -1,13 +1,12 @@
 import type { Prediction, ImageGenerationParams, VideoGenerationParams } from '@/types'
 
 const REPLICATE_API = 'https://api.replicate.com/v1'
-const token = process.env.REPLICATE_API_TOKEN!
 
-async function post(url: string, body: unknown): Promise<Prediction> {
+async function post(url: string, body: unknown, apiKey: string): Promise<Prediction> {
   const res = await fetch(url, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(body),
@@ -24,9 +23,9 @@ async function post(url: string, body: unknown): Promise<Prediction> {
   return data as unknown as Prediction
 }
 
-export async function getPrediction(id: string): Promise<Prediction> {
+export async function getPrediction(id: string, apiKey: string): Promise<Prediction> {
   const res = await fetch(`${REPLICATE_API}/predictions/${id}`, {
-    headers: { Authorization: `Bearer ${token}` },
+    headers: { Authorization: `Bearer ${apiKey}` },
     cache: 'no-store',
   })
   const text = await res.text()
@@ -34,7 +33,7 @@ export async function getPrediction(id: string): Promise<Prediction> {
   return JSON.parse(text)
 }
 
-export async function generateImage(params: ImageGenerationParams): Promise<Prediction> {
+export async function generateImage(params: ImageGenerationParams, apiKey: string): Promise<Prediction> {
   const isNanoBanana = params.model.includes('nano-banana')
 
   if (isNanoBanana) {
@@ -47,7 +46,7 @@ export async function generateImage(params: ImageGenerationParams): Promise<Pred
           ? { image_input: imageInputs, aspect_ratio: 'match_input_image' }
           : { aspect_ratio: params.aspect_ratio ?? '1:1' }),
       },
-    })
+    }, apiKey)
   }
 
   return post(`${REPLICATE_API}/models/${params.model}/predictions`, {
@@ -58,10 +57,10 @@ export async function generateImage(params: ImageGenerationParams): Promise<Pred
       ...(params.height ? { height: params.height } : {}),
       ...(params.image_url ? { image: params.image_url } : {}),
     },
-  })
+  }, apiKey)
 }
 
-export async function generateVideo(params: VideoGenerationParams): Promise<Prediction> {
+export async function generateVideo(params: VideoGenerationParams, apiKey: string): Promise<Prediction> {
   const isSeedance = params.model.includes('seedance')
   const isKling = params.model.includes('kling')
   const isVidu = params.model.includes('vidu')
@@ -92,5 +91,5 @@ export async function generateVideo(params: VideoGenerationParams): Promise<Pred
       ...audioInput,
       ...resolutionInput,
     },
-  })
+  }, apiKey)
 }

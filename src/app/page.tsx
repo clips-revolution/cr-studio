@@ -6,12 +6,14 @@ import Image from 'next/image'
 import BackgroundGrid from '@/components/layout/BackgroundGrid'
 import UserMenu from '@/components/layout/UserMenu'
 import AppFooter from '@/components/layout/AppFooter'
+import ApiKeyGuard from '@/components/setup/ApiKeyGuard'
 
 export default async function HomePage() {
   const session = await getServerSession(authOptions)
   if (!session) redirect('/auth/login')
 
   return (
+    <ApiKeyGuard>
     <div className="relative min-h-screen bg-black flex flex-col">
 
       {/* Background — fixed כדי שיכסה תמיד את כל ה-viewport גם בגלילה */}
@@ -92,5 +94,6 @@ export default async function HomePage() {
         <AppFooter />
       </div>
     </div>
+    </ApiKeyGuard>
   )
 }

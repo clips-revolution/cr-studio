@@ -1,9 +1,11 @@
 import ImageStudio from '@/components/images/TextToImage'
 import AppHeader from '@/components/layout/AppHeader'
 import AppFooter from '@/components/layout/AppFooter'
+import ApiKeyGuard from '@/components/setup/ApiKeyGuard'
 
 export default function ImagesPage() {
   return (
+    <ApiKeyGuard>
     <div className="min-h-screen bg-background flex flex-col">
       <AppHeader active="images" />
 
@@ -36,5 +38,6 @@ export default function ImagesPage() {
 
       <AppFooter />
     </div>
+    </ApiKeyGuard>
   )
 }

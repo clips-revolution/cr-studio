@@ -3,7 +3,8 @@
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { LogOut, User } from 'lucide-react'
+import { LogOut, User, Key, Trash2 } from 'lucide-react'
+import { useApiKey } from '@/hooks/useApiKey'
 
 interface Props {
   name?: string | null
@@ -14,6 +15,7 @@ interface Props {
 export default function UserMenu({ name, email, image }: Props) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
+  const { apiKey, clearApiKey } = useApiKey()
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -22,6 +24,12 @@ export default function UserMenu({ name, email, image }: Props) {
     document.addEventListener('mousedown', handleClick)
     return () => document.removeEventListener('mousedown', handleClick)
   }, [])
+
+  function handleClearKey() {
+    if (!confirm('למחוק את מפתח ה-API? תצטרך להזין אותו מחדש.')) return
+    clearApiKey()
+    setOpen(false)
+  }
 
   return (
     <div ref={ref} className="relative">
@@ -60,6 +68,30 @@ export default function UserMenu({ name, email, image }: Props) {
                 <p className="text-white text-sm font-medium truncate">{name ?? 'משתמש'}</p>
                 <p className="text-white/40 text-xs truncate ltr">{email}</p>
               </div>
+            </div>
+          </div>
+
+          {/* API Key status */}
+          <div className="px-4 py-3 border-b border-white/8">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Key className="w-3.5 h-3.5 text-white/30" />
+                <span className="text-white/40 text-xs">Replicate API</span>
+              </div>
+              {apiKey ? (
+                <div className="flex items-center gap-2">
+                  <span className="text-emerald-400 text-xs font-mono">{apiKey.slice(0, 6)}…</span>
+                  <button
+                    onClick={handleClearKey}
+                    className="text-white/20 hover:text-red-400 transition-colors"
+                    title="מחק מפתח"
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              ) : (
+                <span className="text-amber-400/70 text-xs">לא מוגדר</span>
+              )}
             </div>
           </div>
 

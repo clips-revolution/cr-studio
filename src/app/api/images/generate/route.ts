@@ -8,11 +8,17 @@ export async function POST(req: NextRequest) {
     const session = await getServerSession(authOptions)
     if (!session?.user) return NextResponse.json({ error: 'לא מחובר' }, { status: 401 })
 
+    const apiKey = req.headers.get('X-Replicate-Key')
+    if (!apiKey) return NextResponse.json({ error: 'חסר מפתח Replicate API' }, { status: 400 })
+
     const body = await req.json()
     const { prompt, model, width, height, aspect_ratio, image_url, image_urls, negative_prompt } = body
     if (!prompt || !model) return NextResponse.json({ error: 'חסרים פרטים' }, { status: 400 })
 
-    const prediction = await generateImage({ prompt, model, width, height, aspect_ratio, image_url, image_urls, negative_prompt })
+    const prediction = await generateImage(
+      { prompt, model, width, height, aspect_ratio, image_url, image_urls, negative_prompt },
+      apiKey
+    )
     return NextResponse.json({ predictionId: prediction.id })
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'שגיאה לא צפויה'

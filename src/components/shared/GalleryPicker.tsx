@@ -1,9 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import { X, Loader2, Images } from 'lucide-react'
 import Image from 'next/image'
-import type { Asset } from '@/types'
+import { useGallery } from '@/hooks/useGallery'
 
 interface Props {
   onSelect: (url: string) => void
@@ -11,15 +10,8 @@ interface Props {
 }
 
 export default function GalleryPicker({ onSelect, onClose }: Props) {
-  const [assets, setAssets] = useState<Asset[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetch('/api/assets/list?type=image')
-      .then(r => r.json())
-      .then(data => setAssets(data.assets ?? []))
-      .finally(() => setLoading(false))
-  }, [])
+  const { assets } = useGallery('image')
+  const loading = false
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm" onClick={onClose}>
