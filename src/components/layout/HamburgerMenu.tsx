@@ -58,9 +58,8 @@ export default function HamburgerMenu() {
         </button>
 
         {/* Logo */}
-        <div className="flex flex-col items-center gap-3 mb-8 pb-6 border-b border-white/[0.07]">
+        <div className="flex justify-center mb-8 pb-6 border-b border-white/[0.07]">
           <Image src="/clips-revolution-logo.png" alt="clips.Revolution" width={56} height={56} className="object-contain" />
-          <Image src="/logo.png" alt="cR Studio" width={48} height={48} className="object-contain" />
         </div>
 
         {/* Links */}
