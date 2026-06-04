@@ -1,9 +1,17 @@
 import type { Metadata } from 'next'
+import localFont from 'next/font/local'
 import { Oswald, Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
 import { Toaster } from 'sonner'
 import Providers from '@/components/layout/Providers'
 import HamburgerMenu from '@/components/layout/HamburgerMenu'
+
+const abraham = localFont({
+  src: './fonts/Abraham-Regular.ttf',
+  display: 'swap',
+  weight: '100 900',
+  variable: '--font-sans',
+})
 
 const oswald = Oswald({
   subsets: ['latin'],
@@ -29,8 +37,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="he" dir="rtl" className={`${oswald.variable} ${cormorant.variable}`}>
-      <body>
+    <html lang="he" dir="rtl" className={`${abraham.variable} ${oswald.variable} ${cormorant.variable}`}>
+      <body className={abraham.className}>
         <Providers>
           <HamburgerMenu />
           {children}
