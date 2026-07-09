@@ -33,6 +33,12 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
     shortcut: '/apple-touch-icon.png',
   },
+  openGraph: {
+    images: ['https://clipsrevolution.com/social-preview.png'],
+  },
+  twitter: {
+    images: ['https://clipsrevolution.com/social-preview.png'],
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
