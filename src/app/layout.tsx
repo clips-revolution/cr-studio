@@ -29,11 +29,15 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: 'cR Studio — ייצור תמונות וסרטונים עם Ai',
   description: 'פלטפורמת Ai ראשונה בעברית לייצור תמונות וסרטונים',
-  icons: {
-    icon: '/apple-touch-icon.png',
-    apple: '/apple-touch-icon.png',
-    shortcut: '/apple-touch-icon.png',
-  },
+    icons: [
+    { rel: 'icon', url: '/favicon-v2.ico' },
+    { rel: 'icon', url: '/favicon-48-v2.png', sizes: '48x48', type: 'image/png' },
+    { rel: 'icon', url: '/favicon-32-v2.png', sizes: '32x32', type: 'image/png' },
+    { rel: 'icon', url: '/favicon-192-v2.png', sizes: '192x192', type: 'image/png' },
+    { rel: 'icon', url: '/favicon-512-v2.png', sizes: '512x512', type: 'image/png' },
+    { rel: 'apple-touch-icon', url: '/favicon-512-v2.png', sizes: '512x512', type: 'image/png' },
+  ],
+
   openGraph: {
     images: ['https://clipsrevolution.com/social-preview.png'],
   },
