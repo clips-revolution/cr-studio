@@ -34,6 +34,9 @@ export default function LoginPage() {
     <div className="relative min-h-screen bg-black overflow-hidden flex items-center justify-center">
 
       {/* Static background — ללא תחלופה */}
+      <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-30">
+        <source src="/bg-preview.mp4" type="video/mp4" />
+      </video>
       <BackgroundGrid animate={false} />
 
       {/* Overlays */}
