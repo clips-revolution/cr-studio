@@ -34,13 +34,13 @@ export default function LoginPage() {
     <div className="relative min-h-screen bg-black overflow-hidden flex items-center justify-center">
 
       {/* Static background — ללא תחלופה */}
-      <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-30">
+      <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-60">
         <source src="/bg-preview.mp4" type="video/mp4" />
       </video>
 
       {/* Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/60 to-black/90 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/70 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/80 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50 pointer-events-none" />
 
       {/* Login card */}
       <div className="relative z-10 w-full max-w-sm px-6 fade-up">
