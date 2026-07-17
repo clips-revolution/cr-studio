@@ -37,7 +37,6 @@ export default function LoginPage() {
       <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-30">
         <source src="/bg-preview.mp4" type="video/mp4" />
       </video>
-      <BackgroundGrid animate={false} />
 
       {/* Overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/60 to-black/90 pointer-events-none" />

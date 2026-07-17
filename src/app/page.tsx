@@ -22,7 +22,6 @@ export default async function HomePage() {
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-30">
           <source src="/bg-preview.mp4" type="video/mp4" />
         </video>
-        <BackgroundGrid animate={true} />
         <div className="absolute inset-0 bg-black/50 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 pointer-events-none" />
       </div>
