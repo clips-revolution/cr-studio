@@ -93,9 +93,6 @@ export default async function HomePage() {
         </div>
       </main>
 
-      <div className="relative z-20">
-        <AppFooter />
-      </div>
     </div>
     </ApiKeyGuard>
   )
