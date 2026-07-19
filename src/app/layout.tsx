@@ -27,6 +27,7 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://cr.studio.clipsrevolution.com'),
   verification: { google: 'yZhAE9iG1d8WpdIQTvmJALGnkv7lbU2So1Lt_8nfWQQ' },
 
   title: 'cR Studio - ייצור תמונות וסרטונים ב-Ai',
