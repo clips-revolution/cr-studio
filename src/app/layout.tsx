@@ -42,10 +42,10 @@ export const metadata: Metadata = {
   ],
 
   openGraph: {
-    images: ['https://cr.studio.clipsrevolution.com/cr-studio-og.png'],
+    images: ['https://cr.studio.clipsrevolution.com/cr-studio-og.jpg'],
   },
   twitter: {
-    images: ['https://cr.studio.clipsrevolution.com/cr-studio-og.png'],
+    images: ['https://cr.studio.clipsrevolution.com/cr-studio-og.jpg'],
   },
 }
 
